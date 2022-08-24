@@ -3,8 +3,8 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "start": "webpack-dev-server --config build/webpack.config.js --open",
-        "build": "webpack --config build/webpack.config.js"
+        "start": "webpack-dev-server --config config/webpack.config.js --open",
+        "build": "webpack --config config/webpack.config.js"
     },
     "author": "",
     "license": "ISC",
