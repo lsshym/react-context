@@ -9,14 +9,17 @@ const baseConfig = {
         path: path.resolve(__dirname, "../dist"), // 打包后的目录
     },
 
-    // 我也不知道这是啥
     resolve: {
-        // Add '.ts' and '.tsx' as resolvable extensions.
+        //在导入语句没带文件后缀时，Webpack 会自动带上后缀后去尝试访问文件是否存在。
+        // resolve.extensions用于配置在尝试过程中用到的后缀列表，默认是：js 和 json
         extensions: [".ts", ".tsx", ".js", ".json"],
         extensionAlias: {
             ".js": [".js", ".ts"],
             ".cjs": [".cjs", ".cts"],
             ".mjs": [".mjs", ".mts"],
+        },
+        alias: {
+            "@": resolvePath("../src"),
         },
     },
     plugins: [

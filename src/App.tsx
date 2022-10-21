@@ -1,12 +1,11 @@
 import React from "react";
-import './App.scss'
+import "./App.scss";
 
-import png from './assets/bc.png'
+import png from "./assets/bc.png";
 export interface HelloProps {
     compiler: string;
     framework: string;
 }
-
 export const Hello = (props: HelloProps) => (
     <h1>
         <img src={png} alt="" />
