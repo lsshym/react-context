@@ -3,21 +3,13 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const Webpack = require("webpack");
-
-module.exports = {
-    mode: "development",
+const baseConfig = {
     entry: "./src/index.tsx",
     output: {
         filename: "[name].[hash:8].js", // 打包后的文件名称
         path: path.resolve(__dirname, "../dist"), // 打包后的目录
     },
-    devServer: {
-        port: 3000,
-        hot: true,
-        static: "../dist",
-    },
-    // Enable sourcemaps for debugging webpack's output.
-    devtool: "source-map",
+
     // 我也不知道这是啥
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
@@ -45,7 +37,7 @@ module.exports = {
             },
             // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
             {
-                test: /\.tsx?$/,
+                test: /\.(ts|tsx)$/,
                 loader: "babel-loader",
                 options: {
                     presets: [
@@ -80,6 +72,9 @@ module.exports = {
     //     react: "React",
     //     "react-dom": "ReactDOM",
     // },
+};
+module.exports = {
+    baseConfig,
 };
 
 // // webpack.config.js
