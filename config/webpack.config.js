@@ -1,7 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const Webpack = require("webpack");
 const baseConfig = {
     entry: "./src/index.tsx",
@@ -25,15 +24,22 @@ const baseConfig = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, "../public/index.html"),
         }),
-        new CleanWebpackPlugin(),
         new Webpack.HotModuleReplacementPlugin(),
     ],
     module: {
         rules: [
             {
-                test: /\.(scss|css)$/,
-                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"], // 从右向左解析原则
-                // use: ["style-loader", "css-loader", "sass-loader"], // 从右向左解析原则
+                test: /\.css$/, // 查看
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    "css-loader",
+                    "postcss-loader",
+                ],
+            },
+            {
+                // MiniCssExtractPlugin插件和style-loader冲突，所以这里用MiniCssExtractPlugin插件替换了style-loader
+                test: /\.scss$/,
+                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
             },
             // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
             {
