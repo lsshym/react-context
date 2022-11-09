@@ -46,7 +46,7 @@ const baseConfig = {
             },
             // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
             {
-                test: /\.(ts|tsx)$/,
+                test: /\.(t|j)sx?$/,
                 loader: "babel-loader",
                 options: {
                     presets: [
