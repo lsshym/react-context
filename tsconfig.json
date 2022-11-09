@@ -8,6 +8,12 @@
         "jsx": "react",
         "esModuleInterop": true,
         "moduleResolution": "node"
+    },
+    // 和webpack别名配置搭配
+    "baseUrl": "./",
+    "paths": {
+        "@src/*": ["./src/*"]
     }
+
     // "include": ["./src/**/*"]
 }

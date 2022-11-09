@@ -19,7 +19,7 @@ const baseConfig = {
             ".mjs": [".mjs", ".mts"],
         },
         alias: {
-            "@": "../src",
+            "@src": path.resolve(__dirname, "../src"),
         },
     },
     plugins: [
@@ -67,8 +67,15 @@ const baseConfig = {
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
             {
-                test: /\.(jpe?g|png|gif)$/i,
+                test: /\.(png|jpe?g|svg|gif)$/,
+                type: "asset/inline",
+            },
+            {
+                test: /\.(eot|ttf|woff|woff2)$/,
                 type: "asset/resource",
+                generator: {
+                    filename: "fonts/[hash][ext][query]",
+                },
             },
             {
                 test: /\.ico$/i,
