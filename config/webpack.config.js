@@ -54,6 +54,14 @@ const baseConfig = {
                         "@babel/preset-react",
                         "@babel/preset-typescript",
                     ],
+                    plugins: [
+                        [
+                            "@babel/plugin-transform-runtime",
+                            {
+                                regenerator: true,
+                            },
+                        ],
+                    ],
                 },
             },
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
