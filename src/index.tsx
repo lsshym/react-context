@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { Hello } from "./App";
+import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Hello compiler="TypeScript" framework="React" />);
+root.render(<App></App>);
