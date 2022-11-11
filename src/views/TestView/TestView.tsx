@@ -1,3 +1,4 @@
+import { Button } from "antd";
 import React, { FunctionComponent } from "react";
 import './TestView.scss'
 interface TestViewProps {
@@ -7,7 +8,7 @@ interface TestViewProps {
 const TestView: FunctionComponent<TestViewProps> = () => {
     return (
         <div className="TestView">
-            TestView
+            <Button>测试</Button>
         </div>
     );
 }
