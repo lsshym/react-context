@@ -48,21 +48,6 @@ const baseConfig = {
             {
                 test: /\.(t|j)sx?$/,
                 loader: "babel-loader",
-                options: {
-                    presets: [
-                        "@babel/preset-env",
-                        "@babel/preset-react",
-                        "@babel/preset-typescript",
-                    ],
-                    plugins: [
-                        [
-                            "@babel/plugin-transform-runtime",
-                            {
-                                regenerator: true,
-                            },
-                        ],
-                    ],
-                },
             },
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
