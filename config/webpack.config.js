@@ -27,7 +27,6 @@ const baseConfig = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, "../public/index.html"),
         }),
-        new Webpack.HotModuleReplacementPlugin(),
     ],
     module: {
         rules: [
